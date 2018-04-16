@@ -1,0 +1,43 @@
+CREATE TABLE public.roles
+(
+  id integer NOT NULL DEFAULT nextval('roles_id_seq'::regclass),
+  role character varying(100), -- Vehicle Owners, Driver, Data entry operator, Call agent
+  status character varying(100), -- Active or Inactive
+  created_at timestamp without time zone,
+  created_by integer,
+  updated_at timestamp without time zone,
+  updated_by integer,
+  permissions text,
+  permission_modified_by integer,
+  permission_modified_on timestamp without time zone,
+  CONSTRAINT role_pkey PRIMARY KEY (id),
+  CONSTRAINT roles_role_key UNIQUE (role)
+)
+
+
+CREATE TABLE public.users
+(
+  id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+  user_name character varying(100),
+  password character varying(100),
+  display_name character varying(100),
+  primary_mobile character varying(100),
+  secondary_mobile character varying(100),
+  blood_group character varying(50),
+  address text,
+  date_of_birth timestamp without time zone,
+  role_id integer,
+  status character varying(50),
+  gender character varying(50),
+  created_at timestamp without time zone,
+  created_by integer,
+  updated_at timestamp without time zone,
+  updated_by integer,
+  email character varying(100),
+  documents jsonb,
+  CONSTRAINT users_pkey PRIMARY KEY (id),
+  CONSTRAINT users_role_id FOREIGN KEY (role_id)
+      REFERENCES public.roles (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE CASCADE,
+  CONSTRAINT users_user_name_key UNIQUE (user_name, role_id)
+)
