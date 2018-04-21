@@ -41,3 +41,44 @@ CREATE TABLE public.users
       ON UPDATE NO ACTION ON DELETE CASCADE,
   CONSTRAINT users_user_name_key UNIQUE (user_name, role_id)
 )
+
+
+
+
+
+
+
+CREATE TABLE public.visitors
+(
+  id serial,
+  contact_no character varying(50),
+  visitor_name character varying(150),
+  company character varying(150),
+  vehicle_no character varying(50),
+  carrying_material integer DEFAULT 0,
+  material_details character varying(250),
+  whom_to_meet integer,
+  remarks character varying(256),
+  status integer DEFAULT 1,
+  created_date timestamp without time zone,
+  created_by integer,
+  purpose integer,
+  visit_photo character varying(255),
+  in_time time without time zone,
+  out_time time without time zone,
+  visitor_type integer,
+  id_proof character varying(100),
+  visiting_card character varying(100),
+  unit_id integer,
+  expected_checkout timestamp without time zone,
+  no_of_visitor character varying(10),
+  seq_no integer,
+  pass_no character varying(100),
+  is_visitingcard_enabled integer DEFAULT 0,
+  ref_code character varying(50),
+  work_type integer,
+  workpermit_no character varying(100),
+  is_via_appointment integer DEFAULT 0,
+  appointment_id integer,
+  CONSTRAINT visitors_pkey PRIMARY KEY (id)
+)
