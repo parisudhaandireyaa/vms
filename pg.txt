@@ -82,3 +82,57 @@ CREATE TABLE public.visitors
   appointment_id integer,
   CONSTRAINT visitors_pkey PRIMARY KEY (id)
 )
+
+
+
+
+CREATE TABLE public.appoiments
+(
+  id serial,,
+  name text,
+  mobile integer,
+  to_meet integer,
+  appoiment_date time without time zone,
+  purpose text,
+  created_at time without time zone,
+  CONSTRAINT appoimnt PRIMARY KEY (id)
+)
+
+
+
+CREATE TABLE public.employees
+(
+  id serial,
+  employe_code text,
+  first_name text,
+  last_name text,
+  mobile integer,
+  email text,
+  cc_mail text,
+  work_in text,
+  ext_no integer,
+  photo text,
+  CONSTRAINT id PRIMARY KEY (id)
+)
+
+
+CREATE TABLE public.gates
+(
+  id serial,
+  name text,
+  gate_name_print text,
+  status text,
+  CONSTRAINT gate PRIMARY KEY (id)
+)
+
+
+
+
+CREATE TABLE public.visitor_purpose
+(
+  id serial,
+  purpose text,
+  description text,
+  status text,
+  CONSTRAINT purpose PRIMARY KEY (id)
+)
