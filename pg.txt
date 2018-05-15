@@ -136,3 +136,15 @@ CREATE TABLE public.visitor_purpose
   status text,
   CONSTRAINT purpose PRIMARY KEY (id)
 )
+
+
+
+
+
+CREATE TABLE public.visitor_type
+(
+  id serial,
+  visitor_type_name text,
+  status text,
+  CONSTRAINT id_visitor_type PRIMARY KEY (id)
+)
