@@ -36,10 +36,16 @@
                               </div>
                               <div class="row">
                                   <div class="input-field col s6">
-                                    <i class="mdi-action-account-box prefix"></i>
-                                    <input id="age_input2" type="text" class="validate" name='visitor_name'>
-                                    <label for="age_input2" data-error="Please enter your Mobile.">Name of the visitor</label>
+                                    <select class='validate' style="margin-left:10% !important" name='visitor_name'>
+									  <option value="" disabled selected>Select</option>
+                                        <?php foreach($employees as $data){
+                                            echo '<option value='.$data['id'].'>'.$data['employe_name'].'</option>';
+                                        }
+                                        ?>
+									</select>
+                                    <label for="age_input2" data-error="Please enter your Mobile.">Name of the Visitor</label>
                                   </div>
+								  
 								  <div class="input-field col s6">
                                     <select class='validate' style="margin-left:10% !important" name='visitor_type'>
 									  <option value="" disabled selected>Visitor Type</option>
@@ -60,6 +66,11 @@
                                               the Visit
                                           </label>
                                 </div>
+								<div class="input-field col s6">
+                                    <i class="mdi-action-verified-user prefix"></i>
+                                    <input id="age_input2" type="text" class="validate" name='remarks'>
+                                    <label for="age_input2" data-error="Please enter your Mobile." data-success="Wow!">Remarks</label>
+                                  </div>
                               </div>
                             <div class="row">
                               <div class="input-field col s12">

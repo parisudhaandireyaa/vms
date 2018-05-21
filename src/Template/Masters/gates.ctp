@@ -1,3 +1,7 @@
+<?php 
+if($action!='list')
+{
+?>
 <section id="content">
         <div class="container">
           
@@ -21,7 +25,7 @@
                     <div class="card-panel">
                         <h4 class="header2 temp_col">User Details</h4>
                         <div class="row">
-						<?php echo $this->Form->create(null, ['url' => ['controller' => 'masters','action' => 'users'], 'class' => 'col s12 right-alert']);?>
+						<?php echo $this->Form->create(null, ['url' => ['controller' => 'masters','action' => 'users/add'], 'class' => 'col s12 right-alert']);?>
                               <div class="row">
                                   <div class="input-field col s6">
                                       <i class="mdi-action-account-circle prefix"></i>
@@ -68,15 +72,10 @@
 									</select>
                                     <label for="age_input2" data-error="Please enter your Mobile." data-success="Wow!">Role</label>
                                 </div>
-								<div class="input-field col s6">
-                                    <i class="mdi-action-verified-user prefix"></i>
-                                    <input id="age_input2" type="text" class="validate" name='remarks'>
-                                    <label for="age_input2" data-error="Please enter your Mobile." data-success="Wow!">Remarks</label>
-                                  </div>
                               </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                                <button class="btn waves-effect waves-light right" type="submit">Submit
                                   <i class="mdi-content-send right"></i>
                                 </button>
                               </div>
@@ -115,7 +114,57 @@
   </div>
   <!-- END MAIN -->
   
-<script>
-    alert();
+  
+  <?php } 
+  else{
+  ?>
+  
+  <section id="content">
+        <div class="container">
+          <p class="caption">Users List</p>
+          <div class="divider"></div>
+          <!--jqueryvalidation-->
+          <div id="jqueryvalidation" class="section">
+            <div class="row">
+              <div class="col m12">
+                  <table class='display' id='data-table'>
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>UserName</th>
+			<th>Mobile</th>
+			<th>Email</th>
+			<th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+	    <?php foreach($res as $data) {
+           echo "<tr>";
+		     echo "<td>3</td>";
+             echo "<td>{$data['user_name']}</td>";
+             echo "<td>{$data['primary_mobile']}</td>";
+			 echo "<td>{$data['email']}</td>";
+			 echo "<td>{$data['role_id']}</td>";
+           echo "</tr>";
+		} ?>
+    </tbody>
+				  </table>
+              </div>
+          </div>
 
-</script>
+      
+
+    </div>
+    <!-- END WRAPPER -->
+
+  </div>
+  <!-- END MAIN -->
+  
+  <script>
+     $(document).ready( function () {
+    $('#data-table').DataTable();
+} );
+  </script>
+  
+  <?php }
+  ?>

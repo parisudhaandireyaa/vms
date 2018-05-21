@@ -21,6 +21,7 @@ $session = $this->request->getSession();
 <html lang="en">
 
 <!--================================================================================
+<!--================================================================================
 	Item Name: Materialize - Material Design Admin Template
 	Version: 3.1
 	Author: GeeksLabs
@@ -325,86 +326,19 @@ echo $this->Html->image('flag-icons/United-States.png',array('alt'=>'myimage','c
                     </li>
                 </ul>
             </li>
-            <li class="bold"><a href="app-email.html" class="waves-effect waves-cyan"><i class="mdi-communication-email"></i> Mailbox <span class="new badge">4</span></a>
+			<li class="bold"><a href="<?php echo $this->Url->build(array('controller'=>'Entry','action'=>'visitor-in'));?>" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Visitors In</a>
             </li>
-            <li class="bold"><a href="app-calendar.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Calender</a>
-            </li>
-            <li class="no-padding">
+			<li class="no-padding">
                 <ul class="collapsible collapsible-accordion">
-                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-invert-colors"></i> CSS</a>
+                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-view-carousel"></i> Reports</a>
                         <div class="collapsible-body">
                             <ul>
-                                <li><a href="css-typography.html">Typography</a>
-                                </li>
-                                <li><a href="css-icons.html">Icons</a>
-                                </li>
-                                <li><a href="css-animations.html">Animations</a>
-                                </li>
-                                <li><a href="css-shadow.html">Shadow</a>
-                                </li>
-                                <li><a href="css-media.html">Media</a>
-                                </li>
-                                <li><a href="css-sass.html">Sass</a>
-                                </li>
+							    <li><a href="<?php echo $this->Url->build(array('controller'=>'Reports','action'=>'visitorsReport')); ?>">Visitors List</a></li>
                             </ul>
                         </div>
                     </li>
-                    <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-image-palette"></i> UI Elements</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="ui-alerts.html">Alerts</a>
-                                </li>
-                                <li><a href="ui-buttons.html">Buttons</a>
-                                </li>
-                                <li><a href="ui-badges.html">Badges</a>
-                                </li>
-                                <li><a href="ui-breadcrumbs.html">Breadcrumbs</a>
-                                </li>
-                                <li><a href="ui-collections.html">Collections</a>
-                                </li>
-                                <li><a href="ui-collapsibles.html">Collapsibles</a>
-                                </li>
-                                <li><a href="ui-tabs.html">Tabs</a>
-                                </li>
-                                <li><a href="ui-navbar.html">Navbar</a>
-                                </li>
-                                <li><a href="ui-pagination.html">Pagination</a>
-                                </li>
-                                <li><a href="ui-preloader.html">Preloader</a>
-                                </li>
-                                <li><a href="ui-toasts.html">Toasts</a>
-                                </li>
-                                <li><a href="ui-tooltip.html">Tooltip</a>
-                                </li>
-                                <li><a href="ui-waves.html">Waves</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-av-queue"></i> Advanced UI <span class="new badge"></span></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="advanced-ui-chips.html">Chips</a>
-                                </li>
-                                <li><a href="advanced-ui-cards.html">Cards</a>
-                                </li>
-                                <li><a href="advanced-ui-modals.html">Modals</a>
-                                </li>
-                                <li><a href="advanced-ui-media.html">Media</a>
-                                </li>
-                                <li><a href="advanced-ui-range-slider.html">Range Slider</a>
-                                </li>
-                                <li><a href="advanced-ui-sweetalert.html">SweetAlert</a>
-                                </li>
-                                <li><a href="advanced-ui-nestable.html">Shortable & Nestable</a>
-                                </li>
-                                <li><a href="advanced-ui-translation.html">Language Translation</a>
-                                </li>
-                                <li><a href="advanced-ui-highlight.html">Highlight</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                </ul>
+            </li>
         </ul>
         </aside>
       <!-- END LEFT SIDEBAR NAV-->

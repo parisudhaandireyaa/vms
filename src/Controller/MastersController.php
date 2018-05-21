@@ -107,4 +107,27 @@ class MastersController extends AppController
 		}
 		$this->set('action',$action);
     }
+	
+	public function employees($action='list')
+    {
+		if($action=="list"){
+			$table = TableRegistry::get('employees');
+			$res = $table->find('all')->toList();
+			$this->set('res',$res);
+		}
+		else{
+			$post = $this->request->getData();
+			if(!empty($post)){
+                $insId = $this->Custom->insertUpdate('employees',$post);
+				if($insId=='success'){
+					$this->redirect(["action"=>"employees/list"]);
+				}
+				else{
+					$this->redirect(["action"=>"employees/add"]);
+				}
+			}
+			$action = "add";
+		}
+		$this->set('action',$action);
+    }
 }

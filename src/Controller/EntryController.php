@@ -49,9 +49,12 @@ class EntryController extends AppController
 		$post = $this->request->getData();
         $visitor_type = TableRegistry::get('visitor_type');
         $visitor_type = $visitor_type->find('all')->toList();
+		$employe = TableRegistry::get('employees');
+        $employe = $employe->find('all')->toList();
         $this->set('visitor_type',$visitor_type);
+        $this->set('employees',$employe);
 		if(!empty($post)){
-			$insId = $this->Custom->insertUpdate('Visitors',$post);
+			$insId = $this->Custom->insertUpdate('visitor_entry',$post);
 				if($insId=='success'){
 					$this->redirect(["action"=>"visitorEntry"]);
 				}
@@ -63,8 +66,20 @@ class EntryController extends AppController
 		
 	}
 	
+	public function visitorIn(){
+		
+		    if(isset($_GET['req'])){
+				echo "dzf";exit;
+		         $table = TableRegistry::get('visitor_entry');
+			     $res = $table->find('all')->where(["created_at::date"=>date('Y-m-d')])->toList();
+				 $data['aaData'][] = json_encode($res);
+			     print_r($data);
+				 exit;
+			}
+	}
+	
 	function getData(){
-        $visitor = TableRegistry::get('visitors');
+        $visitor = TableRegistry::get('visitor_entry');
         $ret = $visitor->find('all')->select(["id","visitor_name","company","purpose","visitor_type"]);//->toList();
         $data = [];
         if($ret->count()){
