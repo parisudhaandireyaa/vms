@@ -67,16 +67,26 @@ class EntryController extends AppController
 	}
 	
 	public function visitorIn(){
-		
-		    if(isset($_GET['req'])){
-				echo "dzf";exit;
-		         $table = TableRegistry::get('visitor_entry');
-			     $res = $table->find('all')->where(["created_at::date"=>date('Y-m-d')])->toList();
-				 $data['aaData'][] = json_encode($res);
-			     print_r($data);
-				 exit;
-			}
+		    
 	}
+	
+	public function outEntry(){
+		    
+	}
+	
+	public function visitorInData(){
+		    $table = TableRegistry::get('visitor_entry');
+			     $res = $table->find('all')->where(["created_at::date"=>date('Y-m-d')])->toList();
+				 //echo "<pre>";print_r($res);exit;
+				 $data = array(
+                     "aaData" => array(),
+                  );
+				 $data['aaData'] = $res;
+			     print_r(json_encode($data));
+				 exit;
+	}
+	
+	
 	
 	function getData(){
         $visitor = TableRegistry::get('visitor_entry');

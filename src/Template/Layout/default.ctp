@@ -50,11 +50,11 @@ $session = $this->request->getSession();
   <!-- CORE CSS-->
   
   <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <!-- Custome CSS-->    
-    <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
-
+    
+<?php echo $this->HTML->css('style.min.css');?>
+<?php echo $this->HTML->css('custom/custom.min.css');?>
+<?php echo $this->HTML->css('layouts/page-center');?>
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <?php echo $this->HTML->css('prism');?>
   <?php echo $this->HTML->css('perfect-scrollbar');?>
